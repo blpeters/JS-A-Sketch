@@ -1,0 +1,11 @@
+.grid {
+    width: 600px;
+    height: 600px;
+    background-color: rgb(196, 194, 194);
+    display: grid;
+    grid-gap: 0px;
+}
+
+.square {
+    background-color: rgb(190, 186, 186);
+}
