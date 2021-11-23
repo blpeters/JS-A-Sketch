@@ -1,7 +1,14 @@
+/* VARIABLES */
+
+:root {
+    --default-grid-color: rgb(196, 194, 194);
+
+}
+
 .grid {
     width: 600px;
     height: 600px;
-    background-color: rgb(196, 194, 194);
+    background-color: var(--default-grid-color);
     display: grid;
     grid-gap: 0px;
 }
