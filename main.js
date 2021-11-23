@@ -1,7 +1,7 @@
 // TODO
 //Create a 16x16 grid of html divs using JavaScript
 
-    //Add a clear button to the top of the screen that will reset the drawing canvas. Use a button tag and make a javascript function run on click.
+    //Figure out how to move the clear button/other controls to be below the canvas
     //After clearing add a popup that requests the user input for grid size and updates grid accordingly. max 100
     //Make sure total grid size stays the same.
     //Add rainbow option
@@ -11,6 +11,9 @@
     let gridSize = 50;
     drawGridCanvas(gridSize);
 
+    let clearBtn = document.querySelector("#clear-grid");
+    clearBtn.addEventListener('click', clearGrid);
+    
     function drawGridCanvas(size) {
         let grid = document.createElement("div");
         grid.classList.add('grid');
@@ -40,4 +43,9 @@
 
     function shadeSquare(location) {
         location.style.backgroundColor = "black";
+    }
+
+    function clearGrid() {
+        let clearSquares = document.querySelectorAll(".square");
+        clearSquares.forEach((square) => square.style.backgroundColor = "rgb(196, 194, 194)");
     }
