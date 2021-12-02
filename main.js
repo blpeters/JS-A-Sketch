@@ -1,12 +1,13 @@
 // TODO
-//Create a 16x16 grid of html divs using JavaScript
 
     //Figure out how to move the clear button/other controls to be below the canvas.
     //Add rainbow option
     //add grayscale shading option.
     //create CSS styling and illustrations for etch-a-sketch look. Goal is to look like an etch-a-sketch sitting on a table.
+
+
     
-    let gridSize = 50;
+    let gridSize = 16;
     setupDefaultGrid(gridSize);
  
     let clearBtn = document.querySelector("#clear-grid");
@@ -57,7 +58,17 @@
     }
 
     function shadeSquare(location) {
-        location.style.backgroundColor = "black";
+        
+        //Add counter to each square to count how many times it has been moused, and increase the shade 10% up to 100% each time.
+        //Use counter to determine if it has been oused before or not, and if it has, do not allow a new rainbow color to replace the existing.
+        
+        let randomRed = Math.floor(Math.random()*255);
+        let randomGreen = Math.floor(Math.random()*255);
+        let randomBlue = Math.floor(Math.random()*255);
+        
+        location.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+
+        // location.style.backgroundColor = "black";
     }
 
     function clearGrid() {
