@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS-A-Sketch</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 
     <script src="main.js" defer></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <button id="clear-grid">CLEAR</button>
 
-    <nav id="color-picker">
-        <button id="black">BLACK</button>
-        <button id="rainbow">RAINBOW</button>
-        <button id="shading">SHADING</button>
-    </nav>
-    
-</body>
+    <!-- Think about adding little squares after each shading style showing what it looks like. use CSS -->
+    <form id="shade-style-picker">
+      <input type="radio" name="shade-style" id="black" checked />
+      <label for="black">BLACK</label>
+      <input type="radio" name="shade-style" id="rainbow" />
+      <label for="rainbow">RAINBOW</label>
+      <input type="radio" name="shade-style" id="pencil" />
+      <label for="pencil">PENCIL</label>
+    </form>
+  </body>
 </html>
