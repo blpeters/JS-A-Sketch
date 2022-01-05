@@ -11,7 +11,15 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <button id="clear-grid">CLEAR</button>
+    <div class="frame-container">
+      <div class="frame">
+        <div class="knob-container">
+          <div class="knob knob-left"></div>
+          <div class="knob knob-right"></div>
+        </div>
+      </div>
+    </div>
+    <button id="clear-grid">RESET</button>
 
     <!-- Think about adding little squares after each shading style showing what it looks like. use CSS -->
     <form id="shade-style-picker">
@@ -19,8 +27,9 @@
       <label for="black">BLACK</label>
       <input type="radio" name="shade-style" id="rainbow" />
       <label for="rainbow">RAINBOW</label>
-      <input type="radio" name="shade-style" id="pencil" />
-      <label for="pencil">PENCIL</label>
     </form>
+    <footer>
+      Created by <a href="https://github.com/blpeters">Brett Peters</a>
+    </footer>
   </body>
 </html>

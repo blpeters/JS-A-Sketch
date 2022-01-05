@@ -8,6 +8,8 @@
 let gridSize = 16;
 makeGrid(gridSize);
 
+let rightKnobAngle = 0;
+
 let clearBtn = document.querySelector("#clear-grid");
 clearBtn.addEventListener("click", () => {
   clearGrid();
@@ -32,7 +34,8 @@ function resetGrid() {
 function makeGrid(size) {
   let grid = document.createElement("div");
   grid.classList.add("grid");
-  document.body.prepend(grid);
+  let frame = document.querySelector(".frame");
+  frame.prepend(grid);
   divideGrid(size);
 }
 
@@ -58,13 +61,26 @@ function drawGridSquares(grid, numberOfSquares) {
   }
 }
 
-function shadeSquare(location) {
-  //SHADING OPTION: increase the shade 10% up to 100% each time.
-  //To do this, I think using a switch with case 1-10 may work. compare the existing color (percentage of RGB 255 and increase it by 10%)
+function turnKnobs() {
+  let canvas = document.querySelector(".grid");
+  canvas.addEventListener("mouseup", rotateKnobUp());
 
-  //https://www.codespeedy.com/get-each-color-component-from-rgb-string-in-javascript/
+  function rotateKnobUp() {
+    let angleChange = 10;
+    rightKnobAngle += angleChange;
+    let rightKnob = document.querySelector(".knob-right");
+    rightKnob.style = `transform: rotate(${rightKnobAngle}deg)`;
+    let leftKnob = document.querySelector(".knob-left");
+    leftKnob.style = `transform: rotate(${rightKnobAngle}deg)`;
+  }
+}
+function shadeSquare(location) {
+  turnKnobs();
+
+  //SHADING OPTION: increase the shade 10% up to 100% each time.
+
   if (document.getElementById("black").checked) {
-    location.style.backgroundColor = "black";
+    location.style.backgroundColor = "rgba(0,0,0,1.0)";
   } else if (document.getElementById("rainbow").checked) {
     let randomRed = Math.floor(Math.random() * 255);
     let randomGreen = Math.floor(Math.random() * 255);
@@ -72,6 +88,16 @@ function shadeSquare(location) {
 
     location.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
   } else {
+    let currentColor = location.style.backgroundColor;
+    var alpha = currentColor.match(/[.?\d]+/g);
+    console.log(alpha);
+    var rgb = currentColor.match(/\d+/g);
+    console.log(rgb);
+
+    if (alpha < 1) {
+      alpha += 0.1;
+    }
+
     console.log("shading...");
   }
 }
