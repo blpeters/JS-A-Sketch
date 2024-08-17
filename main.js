@@ -5,7 +5,7 @@
 
 //create CSS styling and illustrations for etch-a-sketch look. Goal is to look like an etch-a-sketch sitting on a table.
 
-let gridSize = 16;
+let gridSize = 50;
 makeGrid(gridSize);
 
 let rightKnobAngle = 0;
